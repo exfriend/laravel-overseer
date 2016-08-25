@@ -1,0 +1,20 @@
+{
+  "name": "exfriend/laravel-overseer",
+  "description": "Laravel Task Manager",
+  "type": "library",
+  "require": {
+    "exfriend/artisan-mutex": "^1.0"
+  },
+  "license": "MIT",
+  "autoload":{
+    "psr-4":{
+      "Exfriend\\Overseer\\":"src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Vladislav Otchenashev",
+      "email": "i@zlad.tk"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "d01e7c7d95fc89aa6538b3d9ac93b9b9",
+    "content-hash": "14532e367d727b42a940bff05cf929fc",
+    "packages": [
+        {
+            "name": "exfriend/artisan-mutex",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/exfriend/artisan-mutex.git",
+                "reference": "9f60c431dd95888a3a7d319bfd3b97dc779b14e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/exfriend/artisan-mutex/zipball/9f60c431dd95888a3a7d319bfd3b97dc779b14e1",
+                "reference": "9f60c431dd95888a3a7d319bfd3b97dc779b14e1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exfriend\\ArtisanMutex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladislav Otchenashev",
+                    "email": "i@zlad.tk"
+                }
+            ],
+            "description": "Prevent ANY overlapping for Laravel Artisan commands.",
+            "time": "2016-08-24 23:09:21"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

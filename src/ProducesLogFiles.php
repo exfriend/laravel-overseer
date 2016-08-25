@@ -40,7 +40,12 @@ trait ProducesLogFiles
 
     protected function getLogFolder()
     {
-        return storage_path( 'logs/tasks' );
+        $path = storage_path( 'logs/tasks' );
+        if ( !file_exists( $path ) )
+        {
+            mkdir( $path, 0777, true );
+        }
+        return $path;
     }
 
     protected function prepareLogger()

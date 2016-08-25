@@ -13,10 +13,21 @@ abstract class Command extends \Illuminate\Console\Command
     use PreventRealOverlapping, ProducesLogFiles;
 
     public $logger;
+    protected $title;
     /**
      * @var Mutex
      */
     public $mutex;
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setProgress( $percent )
+    {
+        return $this->mutex->write( $percent );
+    }
 
     public function __construct()
     {

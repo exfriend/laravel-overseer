@@ -1,5 +1,10 @@
 <?php
 
+Route::any( 'overseer/api/command', [
+    'as' => 'overseer.api.command',
+    'uses' => 'Exfriend\Overseer\OverseerController@command',
+] );
+
 Route::any( 'overseer/api/commands', [
     'as' => 'overseer.api.commands',
     'uses' => 'Exfriend\Overseer\OverseerController@commands',

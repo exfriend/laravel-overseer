@@ -1,6 +1,8 @@
 <?php
 namespace Exfriend\Overseer;
 
+use Carbon\Carbon;
+
 class CommandManager
 {
     use RunsCommandsInBackground;
@@ -8,6 +10,11 @@ class CommandManager
      * @var Command
      */
     protected $command;
+
+    public function command()
+    {
+        return $this->command;
+    }
 
     public function __construct( $command )
     {
@@ -24,6 +31,29 @@ class CommandManager
         }
         $this->command = $command;
         return $this;
+    }
+
+    public function getProgress()
+    {
+        if ( $this->command->mutex->exists() )
+        {
+            return $this->command->mutex->read();
+        }
+        return 0;
+    }
+
+    public function getLastRun()
+    {
+        $logs = $this->getLogFilenames( true );
+        if ( count( $logs ) )
+        {
+            $l = $logs[ 0 ];
+            $l = explode( '__', $l )[ 1 ];
+            $l = str_replace( '.log', '', $l );
+            $time = Carbon::createFromFormat( 'Y_m_d_H_i_s', $l )->format( 'd.m.Y H:i:s' );
+            return $time;
+        }
+        return 0;
     }
 
     public function run()
@@ -82,7 +112,8 @@ class CommandManager
 
         if ( !$short )
         {
-            return file_get_contents( $file );
+            $lines = file( $file );
+            return $lines;
         }
 
         $lines = [];
@@ -90,14 +121,17 @@ class CommandManager
         while ( !feof( $fp ) )
         {
             $line = fgets( $fp, 4096 );
+            if(!$line){
+                break;
+            }
             array_push( $lines, $line );
-            if ( count( $lines ) > 5 )
+            if ( count( $lines ) > 30 )
             {
                 array_shift( $lines );
             }
         }
         fclose( $fp );
 
-        return implode( PHP_EOL, $lines );
+        return $lines;
     }
 }

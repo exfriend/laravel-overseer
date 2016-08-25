@@ -14,14 +14,36 @@ class OverseerController extends Controller
         $this->commands = $manager->getAllRegisteredCommands();
     }
 
+    public function command( Request $request )
+    {
+        $cm = new CommandManager( $request->command );
+        $coms = [
+            'command' => $request->command,
+            'running' => $cm->is_running(),
+            'title' => $cm->command()->getTitle(),
+            'progress' => $cm->getProgress(),
+            'last_run' => $cm->getLastRun(),
+            'description' => $cm->command()->getDescription(),
+            'short_log' => $cm->getCurrentLog(1),
+            'logs' => $cm->getLogFilenames( 1 ),
+        ];
+
+        return $this->respondOkWithData( $coms );
+    }
+
     public function commands()
     {
         $coms = [];
         foreach ( $this->commands as $command )
         {
+            $cm = new CommandManager( $command );
             $coms[] = [
                 'command' => $command,
-                'running' => ( new CommandManager( $command ) )->is_running(),
+                'running' => $cm->is_running(),
+                'title' => $cm->command()->getTitle(),
+                'progress' => $cm->getProgress(),
+                'last_run' => $cm->getLastRun(),
+                'description' => $cm->command()->getDescription(),
             ];
 
         }

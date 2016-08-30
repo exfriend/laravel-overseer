@@ -188,9 +188,9 @@ status: "ok",
  
 ### Mutex locks
 
-Overseer used mechanism called Mutual Exclusion to prevent your task overlapping.
+Overseer uses mechanism called Mutual Exclusion to prevent your task overlapping.
 Sometimes it is useful to use "unlock" command to delete the mutex file. 
-This can be used e.g. if your task did die with uncaught exception and was unable to delete the lock file properly.
+This can be used e.g. if your task died with uncaught exception and was unable to delete the lock file properly.
 In this case your system will consider this task as running until you delete the lock file manually or by using unlock api method.
 
 ### Console improvements

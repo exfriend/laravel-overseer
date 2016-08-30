@@ -207,5 +207,4 @@ If you're looking for a webpage-based user interface for this package, make sure
 
 ## Contributing
 
-This package is work-in-progress. Pull requests are welcome. The is so much work ahead!
-
+This package is work-in-progress. Pull requests are welcome. There is so much work ahead!

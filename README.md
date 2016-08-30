@@ -1,8 +1,5 @@
 # Laravel Overseer
 
-
-![Header Picture][header-picture]
-
 Allows to control artisan commands from Web/API.
 
 ### Overview
@@ -216,5 +213,3 @@ If you're looking for a webpage-based user interface for this package, make sure
 
 This package is work-in-progress. Pull requests are welcome. The is so much work ahead!
 
- 
-[header-picture]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"

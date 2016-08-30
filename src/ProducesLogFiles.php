@@ -38,7 +38,7 @@ trait ProducesLogFiles
         return $path;
     }
 
-    protected function getLogFolder()
+    public function getLogFolder()
     {
         $path = storage_path( 'logs/tasks' );
         if ( !file_exists( $path ) )

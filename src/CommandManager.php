@@ -96,19 +96,9 @@ class CommandManager
         return $names;
     }
 
-    public function getCurrentLog( $short = false )
+    public function getLogByName( $file, $short = false )
     {
-        if ( !$this->is_running() )
-        {
-            return '';
-        }
-        $files = $this->getLogFilenames();
-        if ( !count( $files ) )
-        {
-            return '';
-        }
-
-        $file = $files[ 0 ];
+        $file = $this->command->getLogFolder() . '/' . $file;
 
         if ( !$short )
         {
@@ -121,7 +111,8 @@ class CommandManager
         while ( !feof( $fp ) )
         {
             $line = fgets( $fp, 4096 );
-            if(!$line){
+            if ( !$line )
+            {
                 break;
             }
             array_push( $lines, $line );
@@ -133,5 +124,23 @@ class CommandManager
         fclose( $fp );
 
         return $lines;
+
+    }
+
+    public function getCurrentLog( $short = false )
+    {
+        if ( !$this->is_running() )
+        {
+            return '';
+        }
+        $files = $this->getLogFilenames( true );
+        if ( !count( $files ) )
+        {
+            return '';
+        }
+
+        $file = $files[ 0 ];
+
+        return $this->getLogByName( $file );
     }
 }

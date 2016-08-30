@@ -19,7 +19,7 @@ use them as a reference to write your own frontend on top of Overseer's API.
 All you have to do is extend your Artisan command from `Exfriend\Overseer\Command`
  instead of `Illuminate\Console\Command`.
  
- ## Installation
+## Installation
  
  ` composer  require exfriend/laravel-overseer `
   
@@ -45,7 +45,7 @@ mkdir ./storage/logs/tasks
 chmod -r 666 ./storage/logs/tasks
 ```
  
- ## Example command
+## Example command
  
  Now you are ready to create your first Overseer Command. 
  Basically it's very much like Laravel's console command but there 

@@ -1,4 +1,4 @@
-# Laravel Overseer
+![logo](docs/logo.png)
 
 Allows to control artisan commands from Web/API.
 
